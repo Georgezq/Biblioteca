@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <title>Biblioteca Estudiantil</title>
+
+  <style>
+    .contentFT {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="text-gray-600 body-font">
+    <div class="flex flex-col flex-wrap items-center p-5 mx-auto container-sm md:flex-row">
+      <a class="flex items-center mb-4 font-medium text-gray-900 title-font md:mb-0" href="index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+          stroke-linejoin="round" stroke-width="2" class="w-10 h-10 p-2 text-white bg-red-500 rounded-full"
+          viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <span class="ml-3 text-xl font-bold">Biblioteca Estudiantil</span>
+      </a>
+      <nav class="flex flex-wrap items-center justify-center text-base md:ml-auto">
+        <a class="mr-5 cursor-pointer hover:text-gray-900" id="libros">Revistas/Libros</a>
+        <a class="mr-5 cursor-pointer hover:text-gray-900" id="usuarios">Usuarios</a>
+        <a class="mr-5 cursor-pointer hover:text-gray-900" id="prestamos">Prestamos</a>
+        <a class="mr-5 cursor-pointer hover:text-gray-900" id="devoluciones">Devoluciones</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container mx-auto " id="bienvenida">
+    <div class="container flex items-center justify-center h-96 ">
+      <h1
+        class="p-5 text-4xl font-bold text-black transition duration-300 ease-in-out delay-150 shadow-lg shadow-red-400/50 rounded-xl hover:-translate-y-1 hover:scale-110">
+        Bienvenido a la Libreria Estudiantil</h1>
+    </div>
+  </div>
+
+  <div class="container mx-auto contentFT " id="contentLibros">
+    <h1 class="p-10 text-2xl font-bold text-dark">
+      Añadir nuevo Libro o Revista
+    </h1>
+
+    <form id="formLibros">
+      <div class="mx-auto container-sm">
+        <div
+          class="flex flex-col flex-wrap p-12 bg-white border-2 md:w-3/6 md:mx-auto gap-x-4 gap-y-6 drop-shadow-xl rounded-xl">
+          <div class="flex flex-col md:w-full md:flex-row md:mx-auto md:items-center md:gap-x-4">
+            <div class="w-full md:w-1/2">
+              <label for="tipo" class="block text-sm font-medium leading-6 text-gray-900">Tipo</label>
+              <div class="mt-2">
+                <select id="tipo" name="tipo"
+                  class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                  <option>Revista</option>
+                  <option>Libro</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="w-full md:w-1/2">
+              <label for="codigo" class="block text-sm font-medium leading-6 text-gray-900">Codigo</label>
+              <div class="mt-2">
+                <input type="text" name="codigo" id="codigo" autocomplete="given-name"
+                  class="px-5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" />
+              </div>
+            </div>
+
+            <div class="w-full md:w-1/2">
+              <label for="categoria" class="block text-sm font-medium leading-6 text-gray-900">Categoria</label>
+              <div class="mt-2">
+                <select id="categoria" name="categoria"
+                  class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                  <option>Literatura</option>
+                  <option>Salud</option>
+                  <option>Informatica</option>
+                  <option>Erotico</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row md:items-center md:gap-x-4">
+            <div class="w-full md:w-1/2">
+              <label for="editorial" class="block text-sm font-medium leading-6 text-gray-900">Editorial</label>
+              <div class="mt-2">
+                <input type="text" name="editorial" id="editorial"
+                  class="px-5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" />
+              </div>
+            </div>
+
+            <div class="w-full md:w-1/2">
+              <label for="nomlibro" class="block text-sm font-medium leading-6 text-gray-900">Nom. Libro</label>
+              <div class="mt-2">
+                <input type="text" name="nomlibro" id="nomlibro"
+                  class="px-5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row md:items-center md:gap-x-4 gap-y-5">
+            <div class="w-full md:w-1/2">
+              <label for="autor" class="block text-sm font-medium leading-6 text-gray-900">Autor</label>
+              <div class="mt-2">
+                <input type="text" name="autor" id="autor"
+                  class="px-5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" />
+              </div>
+            </div>
+
+            <div class="w-full md:w-1/2">
+              <label for="apublicacion" class="block text-sm font-medium leading-6 text-gray-900">Año
+                publicación</label>
+              <div class="mt-2">
+                <input name="apublicacion" id="apublicacion" type="text" id="yearInput" maxlength="4"
+                  oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+                  class="px-5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" />
+              </div>
+            </div>
+          </div>
+          <input type="hidden" id="product-index" />
+          <button id="btnAgregarUsuario"
+            class="text-white bg-blue-700 hover:bg-blue-800 w-2/6 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Agregar
+            Libro/Revista</button>
+
+        </div>
+      </div>
+    </form>
+
+    <div class="container-sm ">
+      <h1 class="p-10 text-2xl font-bold text-dark">
+        Libros/Revistas registrados
+      </h1>
+
+      <div class="relative mb-10 overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400" id="tablaLibros">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-white">Tipo</th>
+              <th scope="col" class="px-6 py-3 text-white">Cod.</th>
+              <th scope="col" class="px-6 py-3 text-white">Categoria</th>
+              <th scope="col" class="px-6 py-3 text-white">Editorial</th>
+              <th scope="col" class="px-6 py-3 text-white">Nom. Libro</th>
+              <th scope="col" class="px-6 py-3 text-white">Autor</th>
+              <th scope="col" class="px-6 py-3 text-white">Año publicación</th>
+              <th scope="col" class="px-6 py-3 text-white">Estado</th>
+              <th scope="col" class="px-6 py-3 text-white">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!--Aqui van los usuarios creados o ya listaods -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mx-auto contentFT" id="contentUsuarios">
+    <h1 class="p-10 text-2xl font-bold text-dark">Añadir Estudiante</h1>
+
+    <form id="formUsuario">
+      <div class="mx-auto container-sm">
+        <div
+          class="flex flex-col flex-wrap p-12 bg-white md:w-3/6 md:mx-auto gap-x-4 gap-y-6 drop-shadow-xl border-1 rounded-xl">
+          <div class="flex flex-col md:w-full md:flex-row md:mx-auto md:items-center md:gap-x-4">
+            <div class="w-full mx-auto md:w-1/2">
+              <label for="cedula" class="block text-sm font-medium leading-6 text-gray-900">Cedula</label>
+              <div class="mt-2">
+                <input type="text" name="cedula" id="cedula" autocomplete="given-name"
+                  class="px-5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row md:items-center md:gap-x-4">
+            <div class="w-full md:w-1/2">
+              <label for="nombre" class="block text-sm font-medium leading-6 text-gray-900">Nombre</label>
+              <div class="mt-2">
+                <input type="text" name="nombre" id="nombre"
+                  class="px-5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" />
+              </div>
+            </div>
+
+            <div class="w-full md:w-1/2">
+              <label for="apellido" class="block text-sm font-medium leading-6 text-gray-900">Apellido</label>
+              <div class="mt-2">
+                <input type="text" name="apellido" id="apellido"
+                  class="px-5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row md:items-center md:gap-x-4 gap-y-5">
+            <div class="w-full md:w-1/2">
+              <label for="sexo" class="block text-sm font-medium leading-6 text-gray-900">Sexo</label>
+              <div class="mt-2">
+                <select id="sexo" name="sexo"
+                  class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                  <option>Masculino</option>
+                  <option>Femenino</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="w-full md:w-1/2">
+              <label for="fnacimiento" class="block text-sm font-medium leading-6 text-gray-900">Fecha de
+                Nacimiento</label>
+              <div class="mt-2">
+                <input type="date" name="fnacimiento" id="fnacimiento"
+                  class="px-5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" />
+              </div>
+            </div>
+          </div>
+
+          <button id="btnAgregarUsuario"
+            class="text-white bg-blue-700 hover:bg-blue-800 w-2/6 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Agregar
+            Usuario</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="container-sm">
+      <h1 class="p-10 text-2xl font-bold text-dark">
+        Estudiantes registrados
+      </h1>
+
+      <div class="relative mb-10 overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400" id="tablaEstudiantes">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-white">Cedula</th>
+              <th scope="col" class="px-6 py-3 text-white">Nombre</th>
+              <th scope="col" class="px-6 py-3 text-white">Apellido</th>
+              <th scope="col" class="px-6 py-3 text-white">Sexo</th>
+              <th scope="col" class="px-6 py-3 text-white">F. Nacimiento</th>
+              <th scope="col" class="px-6 py-3 text-white">Estado</th>
+              <th scope="col" class="px-6 py-3 text-white">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!--Aqui van los usuarios creados o ya listaods -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mx-auto contentFT" id="contentPrestamos">
+
+    <h1 class="p-10 text-2xl font-bold text-dark">Añadir Prestamos</h1>
+
+    <form id="formPrestamos">
+      <div class="mx-auto container-sm">
+        <div
+          class="flex flex-col flex-wrap p-12 bg-white md:w-3/6 md:mx-auto gap-x-4 gap-y-6 drop-shadow-xl border-1 rounded-xl">
+          <div class="flex flex-col md:flex-row md:items-center md:gap-x-4 ">
+            <div class="w-full mx-auto md:w-1/2">
+              <label for="codigoP" class="block text-sm font-medium leading-6 text-gray-900">Codigo del Prestamo</label>
+              <div class="mt-2">
+                <input type="text" name="codigoP" id="codigoP"
+                  class="px-5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" />
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col md:w-full md:flex-row md:mx-auto md:items-center md:gap-x-4">
+            <div class="w-full mx-auto md:w-1/2">
+              <label for="cedulaCargar" class="block text-sm font-medium leading-6 text-gray-900">Cedula</label>
+              <div class="mt-2">
+                <select name="cedulaCargar" id="cedulaCargar"
+                  class="px-5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                  <option value="">Seleccionar Cédula</option>
+                  <!-- Aquí se llenarán dinámicamente las opciones de cédula -->
+                </select>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2">
+              <label for="codLibroCargar" class="block text-sm font-medium leading-6 text-gray-900">Código de
+                Libro</label>
+              <div class="mt-2">
+                <select name="codLibroCargar" id="codLibroCargar"
+                  class="px-5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                  <option value="">Seleccionar Código de Libro</option>
+                  <!-- Aquí se llenarán dinámicamente las opciones de código de libro -->
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row md:items-center md:gap-x-4 ">
+            <div class="w-full mx-auto md:w-1/2">
+              <label for="fprestamo" class="block text-sm font-medium leading-6 text-gray-900">Fecha de préstamo</label>
+              <div class="mt-2">
+                <input type="date" name="fprestamo" id="fprestamo" disabled
+                  class="px-5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" />
+              </div>
+            </div>
+            <div class="w-full mx-auto md:w-1/2">
+              <label for="fentrega" class="block text-sm font-medium leading-6 text-gray-900">Fecha de entrega</label>
+              <div class="mt-2">
+                <input type="date" name="fentrega" id="fentrega"
+                  class="px-5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" />
+              </div>
+            </div>
+          </div>
+          <button id="btnAgregarPrestamo"
+            class="text-white bg-blue-700 hover:bg-blue-800 w-2/6 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Agregar
+            Prestamo</button>
+        </div>
+      </div>
+    </form>
+
+
+
+    <div class="container-sm ">
+      <h1 class="p-10 text-2xl font-bold text-dark">
+        Prestamos registrados
+      </h1>
+
+      <div class="relative mb-10 overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full mb-10 text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400" id="tablaPrestamos">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-white">Cedula</th>
+              <th scope="col" class="px-6 py-3 text-white">Cod. Libro</th>
+              <th scope="col" class="px-6 py-3 text-white">Fecha de Préstamo</th>
+              <th scope="col" class="px-6 py-3 text-white">Fecha de entrega</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!--Aqui van los usuarios creados o ya listaods -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container mx-auto contentFT " id="contentDevoluciones">
+
+    <h1 class="p-10 text-2xl font-bold text-dark">Devoluciones</h1>
+
+    <form id="formDevoluciones">
+      <div class="mx-auto container-sm">
+        <div
+          class="flex flex-col flex-wrap p-12 bg-white md:w-3/6 md:mx-auto gap-x-4 gap-y-6 drop-shadow-xl border-1 rounded-xl">
+          <div class="flex flex-col md:w-full md:flex-row md:mx-auto md:items-center md:gap-x-4">
+            <div class="w-full mx-auto md:w-1/2">
+              <label for="codprestamo" class="block text-sm font-medium leading-6 text-gray-900">Cod. Prestamo</label>
+              <div class="mt-2">
+                <select name="codprestamo" id="codprestamo"
+                  class="px-5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                  <option value="">Seleccionar Cod. Prestamo</option>
+                  <!-- Aquí se llenarán dinámicamente las opciones de cédula -->
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col md:flex-row md:items-center md:gap-x-4 ">
+            <div class="w-full mx-auto md:w-1/2">
+              <label for="fdevolucion" class="block text-sm font-medium leading-6 text-gray-900">Fecha de
+                devolucion</label>
+              <div class="mt-2">
+                <input type="date" name="fdevolucion" id="fdevolucion"
+                  class="px-5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6" />
+              </div>
+            </div>
+          </div>
+          <button id="btnAgregarDevolucion"
+            class="text-white bg-blue-700 hover:bg-blue-800 w-2/6 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Agregar
+            Devolución</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="mx-auto container-sm ">
+      <h1 class="p-10 text-2xl font-bold text-dark">
+        Devoluciones registrados
+      </h1>
+
+      <div class="relative mb-10 overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full mb-10 text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400"
+          id="tablaDevoluciones">
+          <thead class="text-xs font-bold text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-white">Cedula</th>
+              <th scope="col" class="px-6 py-3 text-white">Cod. Libro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!--Aqui van los usuarios creados o ya listaods -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="app"></div>
+
+  <script>
+    const prestamosLink = document.getElementById("prestamos");
+    const devolucionesLink = document.getElementById("devoluciones");
+    const librosLink = document.getElementById("libros");
+    const usuariosLink = document.getElementById("usuarios");
+
+    const contentPrestamos = document.getElementById("contentPrestamos");
+    const contentDevoluciones = document.getElementById("contentDevoluciones");
+    const contentLibros = document.getElementById("contentLibros");
+    const contentUsuarios = document.getElementById("contentUsuarios");
+    const bienvenida = document.getElementById("bienvenida");
+
+    const prestados = document.getElementById("prestados");
+    const sancionados = document.getElementById("sancionados");
+
+    prestamosLink.addEventListener("click", () => {
+      contentPrestamos.style.display = "block";
+      contentDevoluciones.style.display = "none";
+      contentLibros.style.display = "none";
+      contentUsuarios.style.display = "none";
+      bienvenida.style.display = "none";
+    });
+
+    devolucionesLink.addEventListener("click", () => {
+      contentPrestamos.style.display = "none";
+      contentDevoluciones.style.display = "block";
+      contentLibros.style.display = "none";
+      contentUsuarios.style.display = "none";
+      bienvenida.style.display = "none";
+    });
+
+    librosLink.addEventListener("click", () => {
+      contentPrestamos.style.display = "none";
+      contentDevoluciones.style.display = "none";
+      contentLibros.style.display = "block";
+      contentUsuarios.style.display = "none";
+      bienvenida.style.display = "none";
+    });
+
+    usuariosLink.addEventListener("click", () => {
+      contentPrestamos.style.display = "none";
+      contentDevoluciones.style.display = "none";
+      contentLibros.style.display = "none";
+      contentUsuarios.style.display = "block";
+      bienvenida.style.display = "none";
+
+    });
+
+  </script>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
